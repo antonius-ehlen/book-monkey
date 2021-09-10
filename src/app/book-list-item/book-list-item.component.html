@@ -1,0 +1,16 @@
+<img class="ui tiny image" *ngIf="book.thumbnails && book.thumbnails[0] && book.thumbnails[0].url" [src]="book.thumbnails[0].url">
+<div class="content">
+    <div class="header">{{ book.title }}</div>
+    <div *ngIf="book.subtitle" class="description">{{ book.subtitle }}</div>
+    <div class="metadata">
+        <br>
+        <span class="bgGerade" style="background-color: aquamarine;" *ngFor="let author of book.authors; index as k; index as even; last as i">
+        {{k+1}}: {{ author }} <span *ngIf="!i">, </span>
+        </span>
+        <br>
+        <span class="bgUngerade" *ngFor="let author of book.authors; index as odd; index as k; last as i">
+              {{k+1}}: {{ author }} <span *ngIf="!i">, </span>
+        </span>
+        <br> ISBN {{ book.isbn }}
+    </div>
+</div>
